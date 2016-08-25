@@ -2,7 +2,7 @@
 
 This is a **personal** style guide to write code in Objective-C.
 
-> As you may notice, this guide is slightly based on [Ray Wenderlich's Objective-C Style Guide](https://github.com/raywenderlich/objective-c-style-guide) with some minor differences.
+> As you may notice, this guide is heavily inspired on [Ray Wenderlich's Objective-C Style Guide](https://github.com/raywenderlich/objective-c-style-guide) with some minor differences.
 
 ## Table of Contents:
 * [Language](#language)
@@ -33,6 +33,75 @@ This is a **personal** style guide to write code in Objective-C.
 * [Xcode Project](#xcode-project)
 
 ## Language
-English is preferred over any other language, no matter if you are an american, british or australian 😄
+
+English is preferred over any other language, no matter if you are an american, british or australian 😄. Please don't use another language.
+
+**Preferred:**
+```objc
+NSString *name = @"John";
+```
+
+**Not Preferred:**
+```objc
+NSString *nombre = @"John";
+```
 
 ## Code Organization
+
+Use `#pragma mark -` to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
+
+```objc
+// ViewController.m
+#import "LoginViewController.h"
+
+@interface LoginViewController ()
+
+#pragma mark - IBOutlets
+@property (weak, nonatomic) IBOutlet UITextField *userNameInput;
+@property (weak, nonatomic) IBOutlet UITextField *passwordInput;
+
+#pragma mark - Local Vars
+@property (nonatomic, strong) APIClient *client;
+
+@end
+
+@implementation LoginViewController
+
+#pragma mark - Lifecycle
+- (instancetype)init {}
+- (void)dealloc {}
+- (void)viewDidLoad {}
+- (void)viewWillAppear:(BOOL)animated {}
+- (void)didReceiveMemoryWarning {}
+
+#pragma mark - Custom Accessors
+
+- (void)setCustomProperty:(id)value {}
+- (id)customProperty {}
+
+#pragma mark - IBActions
+
+- (IBAction)submitData:(id)sender {}
+
+#pragma mark - Public
+
+- (void)publicMethod {}
+
+#pragma mark - Private
+
+- (void)privateMethod {}
+
+#pragma mark - Protocol Conformance
+#pragma mark - UITextFieldDelegate
+#pragma mark - UITableViewDataSource
+#pragma mark - UITableViewDelegate
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {}
+
+#pragma mark - NSObject
+
+- (NSString *)description {}
+```
+@end
