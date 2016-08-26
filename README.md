@@ -52,6 +52,7 @@ Use `#pragma mark -` to categorize methods in functional groupings and protocol/
 
 ```objc
 // ViewController.m
+
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
@@ -103,5 +104,60 @@ Use `#pragma mark -` to categorize methods in functional groupings and protocol/
 #pragma mark - NSObject
 
 - (NSString *)description {}
-```
+
 @end
+```
+
+
+## Spacing
+* Tabs vs Spaces: Civil War, we should make a film about this. Just simply use Tabs my friend.
+* Curly Braces should open on the same line of `if / else / switch / while` and similar statements.
+
+**Preferred:**
+```objc
+if (user.isHappy) {
+	// Do something
+} else {
+	// Do something else
+}
+```
+
+**Not Preferred:**
+```objc
+if (user.isHappy)
+{
+	// Do something
+}
+else
+{
+	// Do something else
+}
+```
+
+* There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but often there should probably be new methods.
+* Prefer using auto-synthesis. But if necessary, `@synthesize` and `@dynamic` should each be declared on new lines in the implementation.
+* Colon-aligning method invocation should often be avoided.  There are cases where a method signature may have >= 3 colons and colon-aligning makes the code more readable. Please do **NOT** however colon align methods containing blocks because Xcode's indenting makes it illegible.
+
+**Preferred:**
+
+```objc
+// blocks are easily readable
+[UIView animateWithDuration:1.0 animations:^{
+ 	// something
+} completion:^(BOOL finished) {
+	// something
+}];
+```
+
+**Not Preferred:**
+
+```objc
+// colon-aligning makes the block indentation hard to read
+[UIView animateWithDuration:1.0
+                 animations:^{
+                     // something
+                 }
+                 completion:^(BOOL finished) {
+                     // something
+                 }];
+```
