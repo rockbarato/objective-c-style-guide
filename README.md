@@ -2,7 +2,7 @@
 
 This is a **personal** style guide to write code in Objective-C.
 
-> As you may notice, this guide is heavily inspired on [Ray Wenderlich's Objective-C Style Guide](https://github.com/raywenderlich/objective-c-style-guide) with some minor differences.
+> As you may notice, this guide is heavily inspired by [Ray Wenderlich's Objective-C Style Guide](https://github.com/raywenderlich/objective-c-style-guide) with some minor differences.
 
 ## Table of Contents:
 * [Language](#language)
@@ -92,6 +92,9 @@ Use `#pragma mark -` to categorize methods in functional groupings and protocol/
 
 - (void)privateMethod {}
 
+#pragma mark - Webserice
+- (void)retrieveProductDetailWithID:(NSString *)productID complete:(void (^)())complete {}
+
 #pragma mark - Protocol Conformance
 #pragma mark - UITextFieldDelegate
 #pragma mark - UITableViewDataSource
@@ -105,13 +108,16 @@ Use `#pragma mark -` to categorize methods in functional groupings and protocol/
 
 - (NSString *)description {}
 
+#pragma mark - Navigation
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {}
+
 @end
 ```
 
 
 ## Spacing
 * Tabs vs Spaces: Civil War, we should make a film about this. Just simply use Tabs my friend.
-* Curly Braces should open on the same line of `if / else / switch / while` and similar statements.
+* Curly Braces should open on the same line for  `if / else / switch / while / for` and similar statements.
 
 **Preferred:**
 ```objc
@@ -161,3 +167,11 @@ else
                      // something
                  }];
 ```
+
+
+## Comments
+
+See [DOCUMENTATION.md](./DOCUMENTATION.md) file for more information.
+
+
+## Naming
