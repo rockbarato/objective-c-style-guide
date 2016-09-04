@@ -173,5 +173,4 @@ else
 
 See [DOCUMENTATION.md](./DOCUMENTATION.md) file for more information.
 
-
 ## Naming
